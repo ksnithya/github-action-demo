@@ -37,4 +37,4 @@ jobs:
         cd blue/flask-demo
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker images
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:v1
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
