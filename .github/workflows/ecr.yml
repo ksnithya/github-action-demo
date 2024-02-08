@@ -31,7 +31,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
+        ECR_REPOSITORY: python-flask-demo
         IMAGE_TAG: ${{ github.event.inputs.tag }}
       run: |
         cd blue/flask-demo
