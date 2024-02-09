@@ -49,3 +49,7 @@ jobs:
       run: | 
         aws eks --region ap-south-1 update-kubeconfig --name eks_cluster_demo
         kubectl get nodes
+        
+    - name: check chart exist
+      run: | 
+        echo "::set-output name=x::`helm list|grep -w test|wc -l`"
