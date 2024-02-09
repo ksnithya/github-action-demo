@@ -16,6 +16,12 @@ jobs:
 
     - name: Check out code
       uses: actions/checkout@v2
+      
+    - name: Install kubectl
+      uses: azure/setup-kubectl@v2.0
+      with:
+        version: 'v1.27.0' # default is latest stable
+      id: install
     
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -38,3 +44,8 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker images
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+    
+    - name: Update kube config
+      run: | 
+        aws eks --region ap-south-1 update-kubeconfig --name eks_cluster_demo
+        kubectl get nodes
