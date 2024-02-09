@@ -53,8 +53,7 @@ jobs:
     - name: check chart exist
       run: | 
         echo "x = $(( `helm list|grep -w test|wc -l` ))"
-        echo "`type(x)`"
-        if [ $(( x )) >= 1 ]; then
+        if [ $x >= 1 ]; then
           echo " Chart exist the upgrade"
           helm upgrade test ./python-flask
         else
