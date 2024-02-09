@@ -52,4 +52,5 @@ jobs:
         
     - name: check chart exist
       run: | 
-        echo "::set-output name=x::`helm list|grep -w test|wc -l`"
+        echo `helm list|grep -w test|wc -l`
+
