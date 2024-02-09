@@ -3,7 +3,7 @@ app = Flask(__name__)
   
 @app.route('/') 
 def hello(): 
-    return "welcome to the flask tutorials updated with githubaction"
+    return "welcome to the flask tutorials updated with githubaction and ECR usage"
   
   
 if __name__ == "__main__": 
